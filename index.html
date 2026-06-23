@@ -1,0 +1,23 @@
+---
+layout: default
+title: Home
+---
+
+<section class="section">
+  <header class="section__header">
+    <h1 class="section__title">Artículos recientes</h1>
+    <p class="section__subtitle">Lo último del blog</p>
+  </header>
+
+  {% assign recent_posts = site.posts | where_exp: "post", "post.published != false" | limit: site.custom.posts_per_page %}
+
+  {% if recent_posts.size > 0 %}
+    <div class="post-list post-list--grid">
+      {% for post in recent_posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="section__subtitle">Aún no hay artículos publicados. Vuelve pronto.</p>
+  {% endif %}
+</section>

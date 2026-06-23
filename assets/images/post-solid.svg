@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <rect width="800" height="450" fill="#111827"/>
+  <text x="400" y="220" font-family="system-ui, sans-serif" font-size="72" fill="#f59e0b" text-anchor="middle" font-weight="700">SOLID</text>
+  <text x="400" y="270" font-family="system-ui, sans-serif" font-size="20" fill="#d1d5db" text-anchor="middle">Single · Open/Closed · Liskov · Interface Segregation · Dependency Inversion</text>
+</svg>

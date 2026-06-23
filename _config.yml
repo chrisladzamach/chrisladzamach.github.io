@@ -1,0 +1,100 @@
+# Configuración global del sitio Jekyll
+# GitHub Pages: https://pages.github.com/
+
+title: "Ramarak Blog"
+description: "Reflexiones técnicas y personales de un desarrollador"
+tagline: "Código, diseño y todo lo que hay entre medio"
+
+# Información del autor (usada por el sidebar y SEO)
+author:
+  name: "Ramarak"
+  bio: "Desarrollador de software apasionado por la arquitectura limpia, el diseño minimalista y compartir conocimiento."
+  email: "software.project.zero@example.com"
+  avatar: "/assets/images/profile.jpg"
+  location: "Colombia"
+  links:
+    - label: "GitHub"
+      url: "https://github.com/chrisladzamach"
+      icon: "github"
+    - label: "LinkedIn"
+      url: "https://linkedin.com/in/CsZa"
+      icon: "linkedin"
+
+# URLs: ajusta baseurl si usas un repositorio de usuario/organización
+# usuario:  baseurl: ""  -> https://nombre.github.io
+# proyecto: baseurl: "/nombre-blog" -> https://nombre.github.io/nombre-blog
+baseurl: ""
+url: "https://ramarak.github.io"
+
+timezone: America/Mexico_City
+lang: es
+
+# Motor de Markdown y resaltado de sintaxis
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+# Estructura de enlaces permanentes compatible con el ejemplo:
+# /tecnico/2026/06/23/arquitectura-limpia.html
+permalink: /:categories/:year/:month/:day/:title:output_ext
+
+# Plugins compatibles con GitHub Pages
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Valores por defecto: mantén el Front Matter limpio en los posts
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      published: true
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Paginación (si en el futuro crece el blog, añade jekyll-paginate a plugins)
+# paginate: 6
+# paginate_path: "/page/:num/"
+
+# Archivos y carpetas que no deben publicarse
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - vendor/
+  - node_modules/
+  - .sass-cache/
+  - .jekyll-cache/
+  - .jekyll-metadata
+  - .github/
+  - bin/
+  - .ruby/
+  - .ruby-installer/
+
+# Variables personalizadas accesibles desde Liquid via {{ site.custom }}
+custom:
+  posts_per_page: 6
+  search_placeholder: "Buscar artículos..."
+  empty_search_message: "No se encontraron artículos que coincidan con tu búsqueda."
+  sections:
+    - key: "tecnico"
+      label: "Artículos técnicos"
+      url: "/articulos-tecnicos/"
+    - key: "personal"
+      label: "Artículos personales"
+      url: "/articulos-personales/"

@@ -1,0 +1,143 @@
+# =============================================================================
+# GITIGNORE ORIENTADO A SEGURIDAD
+# Este archivo evita que información sensible, artefactos locales y
+# dependencias privadas lleguen al repositorio remoto.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# 1. Artefactos generados por Jekyll
+# -----------------------------------------------------------------------------
+# La carpeta _site contiene el sitio compilado. Puede incluir rutas locales,
+# metadatos del entorno de compilación y archivos procesados. NUNCA subirla.
+_site/
+
+# Cachés y metadatos de Jekyll que pueden filtrar rutas locales o estado.
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# -----------------------------------------------------------------------------
+# 2. Dependencias de Bundler
+# -----------------------------------------------------------------------------
+# vendor/ puede contener gemas descargadas con rutas locales y binarios propios
+# del sistema. Se regenera con `bundle install`.
+vendor/
+
+# Gemfile.lock se deja ignorado por compatibilidad con diferentes entornos de
+# desarrollo. Si prefieres builds deterministas, elimina la siguiente línea y
+# versiona Gemfile.lock.
+Gemfile.lock
+
+# Configuración local de Bundler (puede contener credenciales o rutas privadas).
+.bundle/
+
+# -----------------------------------------------------------------------------
+# 3. Variables de entorno y secretos
+# -----------------------------------------------------------------------------
+# Nunca subir archivos .env; suelen contener tokens, contraseñas, claves API,
+# credenciales de bases de datos u otros secretos.
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+
+# Archivos de secretos comunes en proyectos Ruby/Jekyll.
+secrets.yml
+secrets.yaml
+config/secrets.yml
+credentials.yml.enc
+master.key
+
+# Claves criptográficas, certificados y almacenes de claves.
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.der
+*.csr
+.ssh/
+
+# -----------------------------------------------------------------------------
+# 4. Archivos del sistema operativo (filtran metadatos del equipo)
+# -----------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# -----------------------------------------------------------------------------
+# 5. Archivos temporales y de respaldo de editores
+# -----------------------------------------------------------------------------
+*.swp
+*.swo
+*~
+*.bak
+*.orig
+*.tmp
+*.temp
+
+# Configuración de editores/IDEs (puede incluir rutas locales, extensiones
+# personales o configuraciones del entorno de desarrollo).
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+.project
+.classpath
+.settings/
+
+# Historial de debuggers y REPLs (puede contener comandos o datos sensibles).
+.byebug_history
+.pry_history
+.irb-history
+.node_repl_history
+
+# -----------------------------------------------------------------------------
+# 6. Logs y archivos de trazas
+# -----------------------------------------------------------------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# -----------------------------------------------------------------------------
+# 7. Node.js / herramientas front-end (si se agregan en el futuro)
+# -----------------------------------------------------------------------------
+node_modules/
+npm-shrinkwrap.json
+yarn.lock
+package-lock.json
+.pnpm-lock.yaml
+
+# -----------------------------------------------------------------------------
+# 8. Cobertura de tests y documentación generada
+# -----------------------------------------------------------------------------
+coverage/
+.nyc_output/
+.yardoc/
+doc/
+rdoc/
+
+# -----------------------------------------------------------------------------
+# 9. Bases de datos y archivos binarios grandes no necesarios
+# -----------------------------------------------------------------------------
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.sql

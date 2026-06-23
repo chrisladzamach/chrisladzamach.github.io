@@ -1,0 +1,35 @@
+---
+layout: default
+title: Artículos personales
+permalink: /articulos-personales/
+---
+
+<section class="section" data-section="personal">
+  <header class="section__header section__header--with-controls">
+    <div>
+      <h1 class="section__title">Artículos personales</h1>
+      <p class="section__subtitle">Reflexiones, lecturas y momentos del día a día</p>
+    </div>
+
+    <div class="view-toggle" role="group" aria-label="Cambiar disposición">
+      <button class="view-toggle__btn" type="button" data-view="list" aria-label="Vista de lista" aria-pressed="false">
+        {% include icon.html name='list' %}
+      </button>
+      <button class="view-toggle__btn view-toggle__btn--active" type="button" data-view="grid" aria-label="Vista de cuadrícula" aria-pressed="true">
+        {% include icon.html name='grid' %}
+      </button>
+    </div>
+  </header>
+
+  {% assign personal_posts = site.categories.personal | where_exp: "post", "post.published != false" %}
+
+  {% if personal_posts.size > 0 %}
+    <div class="post-list post-list--grid" data-post-list>
+      {% for post in personal_posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="section__subtitle">No hay artículos personales publicados todavía.</p>
+  {% endif %}
+</section>

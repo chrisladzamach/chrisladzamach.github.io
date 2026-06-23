@@ -1,0 +1,35 @@
+---
+layout: default
+title: Artículos técnicos
+permalink: /articulos-tecnicos/
+---
+
+<section class="section" data-section="tecnico">
+  <header class="section__header section__header--with-controls">
+    <div>
+      <h1 class="section__title">Artículos técnicos</h1>
+      <p class="section__subtitle">Código, arquitectura y buenas prácticas</p>
+    </div>
+
+    <div class="view-toggle" role="group" aria-label="Cambiar disposición">
+      <button class="view-toggle__btn" type="button" data-view="list" aria-label="Vista de lista" aria-pressed="false">
+        {% include icon.html name='list' %}
+      </button>
+      <button class="view-toggle__btn view-toggle__btn--active" type="button" data-view="grid" aria-label="Vista de cuadrícula" aria-pressed="true">
+        {% include icon.html name='grid' %}
+      </button>
+    </div>
+  </header>
+
+  {% assign tech_posts = site.categories.tecnico | where_exp: "post", "post.published != false" %}
+
+  {% if tech_posts.size > 0 %}
+    <div class="post-list post-list--grid" data-post-list>
+      {% for post in tech_posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="section__subtitle">No hay artículos técnicos publicados todavía.</p>
+  {% endif %}
+</section>

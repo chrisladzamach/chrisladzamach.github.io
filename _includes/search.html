@@ -1,0 +1,30 @@
+<div class="search-overlay" id="search-overlay" hidden>
+  <div class="search-overlay__backdrop" data-search-close></div>
+
+  <div
+    class="search-overlay__panel"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Buscador de artículos">
+    <button class="search-overlay__close" type="button" aria-label="Cerrar buscador" data-search-close>
+      {% include icon.html name='close' %}
+    </button>
+
+    <div class="search-box">
+      <span class="search-box__icon" aria-hidden="true">
+        {% include icon.html name='search' %}
+      </span>
+      <input
+        type="search"
+        id="search-input"
+        class="search-box__input"
+        placeholder="{{ site.custom.search_placeholder | escape }}"
+        autocomplete="off"
+        aria-label="Buscar artículos">
+    </div>
+
+    <div id="search-results" class="search-results" aria-live="polite">
+      <p class="search-results__hint">Escribe para buscar en títulos, contenido y etiquetas.</p>
+    </div>
+  </div>
+</div>

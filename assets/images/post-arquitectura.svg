@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <rect width="800" height="450" fill="#1e293b"/>
+  <rect x="300" y="150" width="200" height="200" fill="none" stroke="#38bdf8" stroke-width="4"/>
+  <rect x="330" y="180" width="140" height="140" fill="none" stroke="#38bdf8" stroke-width="3" opacity="0.8"/>
+  <rect x="360" y="210" width="80" height="80" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.6"/>
+  <text x="400" y="110" font-family="system-ui, sans-serif" font-size="28" fill="#f8fafc" text-anchor="middle">Arquitectura Limpia</text>
+</svg>

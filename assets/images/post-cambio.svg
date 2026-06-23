@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <rect width="800" height="450" fill="#fef3c7"/>
+  <circle cx="650" cy="100" r="50" fill="#fbbf24"/>
+  <path d="M100 380 Q250 250 400 320 T700 280" fill="none" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+  <path d="M650 290 L680 260 L670 300 Z" fill="#d97706"/>
+  <text x="400" y="400" font-family="system-ui, sans-serif" font-size="24" fill="#92400e" text-anchor="middle">Nuevos caminos</text>
+</svg>
