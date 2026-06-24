@@ -1,5 +1,12 @@
-<!-- <footer class="site-footer">
+<footer class="site-footer">
   <div class="site-footer__container">
-    <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name | escape }}. Publicado con <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a> y amor por el diseño minimalista.</p>
+    <p class="site-footer__status">
+      <span class="site-footer__status-dot" aria-hidden="true"></span>
+      System: Stable
+    </p>
+    <p class="site-footer__copy">
+      © {{ site.time | date: '%Y' }} {{ site.author.name | escape | upcase }}_MODE
+    </p>
+    <p class="site-footer__copy">STATUS READY</p>
   </div>
-</footer> -->
+</footer>

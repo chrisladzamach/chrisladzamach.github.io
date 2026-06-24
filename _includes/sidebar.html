@@ -5,22 +5,31 @@
         src="{{ site.author.avatar | relative_url }}"
         alt="Foto de perfil de {{ site.author.name | escape }}"
         class="sidebar__avatar"
-        width="120"
-        height="120"
+        width="80"
+        height="80"
         loading="eager">
-      <h1 class="sidebar__name">{{ site.author.name | escape }}</h1>
+      <p class="sidebar__status">
+        <span class="sidebar__status-dot" aria-hidden="true"></span>
+        System: Online
+      </p>
+      <p class="sidebar__role">Engineer & Researcher</p>
     </a>
 
-    <p class="sidebar__bio">{{ site.author.bio | escape }}</p>
+    <nav class="sidebar__nav" aria-label="Navegación principal">
+      {% assign home_url = '/' | relative_url %}
+      {% assign current_url = page.url | remove: 'index.html' %}
+      {% if current_url == '' %}{% assign current_url = '/' %}{% endif %}
 
-    {% if site.author.location %}
-    <p class="sidebar__location">
-      <span class="sidebar__icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-      </span>
-      {{ site.author.location | escape }}
-    </p>
-    {% endif %}
+      <a class="sidebar__nav-link{% if current_url == home_url %} sidebar__nav-link--active{% endif %}" href="{{ home_url }}">
+        {% include icon.html name='home' %} ~/home
+      </a>
+      <a class="sidebar__nav-link{% if current_url == '/articulos-tecnicos/' %} sidebar__nav-link--active{% endif %}" href="{{ '/articulos-tecnicos/' | relative_url }}">
+        {% include icon.html name='terminal' %} ~/tech
+      </a>
+      <a class="sidebar__nav-link{% if current_url == '/articulos-personales/' %} sidebar__nav-link--active{% endif %}" href="{{ '/articulos-personales/' | relative_url }}">
+        {% include icon.html name='user' %} ~/personal
+      </a>
+    </nav>
 
     <nav class="sidebar__social" aria-label="Enlaces de contacto">
       <ul>

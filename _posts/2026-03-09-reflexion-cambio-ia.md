@@ -1,5 +1,5 @@
 ---
-title: "Disertación: La Transición Cultural y el Futuro de la Información"
+title: "La Transición Cultural y el Futuro de la Información"
 description: "La sociedad contemporánea experimenta una mutación estructural en la producción y validación de la verdad."
 categories: [personal]
 tags: ["reflexiones", "crecimiento", "cambio", "sociedad"]

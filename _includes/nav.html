@@ -6,32 +6,25 @@
       <span></span>
     </button>
 
-    <nav class="topbar__nav" aria-label="Navegación principal">
-      <ul class="topbar__menu">
-        {% assign home_url = '/' | relative_url %}
-        {% assign current_url = page.url | remove: 'index.html' %}
-        {% if current_url == '' %}{% assign current_url = '/' %}{% endif %}
+    <div class="topbar__path" aria-label="Ruta actual">
+      {% assign current_url = page.url | remove: 'index.html' %}
+      {% if current_url == '' or current_url == '/' %}
+        <strong>~/home</strong>
+      {% elsif current_url == '/articulos-tecnicos/' %}
+        <strong>~/tech</strong>
+      {% elsif current_url == '/articulos-personales/' %}
+        <strong>~/personal</strong>
+      {% elsif page.categories.size > 0 %}
+        <strong>~/blog/{{ page.categories | first }}</strong>
+      {% else %}
+        <strong>~/blog/{{ page.slug | default: page.title | slugify }}</strong>
+      {% endif %}
+    </div>
 
-        <li>
-          <a class="topbar__link{% if current_url == home_url %} topbar__link--active{% endif %}" href="{{ home_url }}">
-            Home
-          </a>
-        </li>
-        <li>
-          <a class="topbar__link{% if current_url == '/articulos-tecnicos/' %} topbar__link--active{% endif %}" href="{{ '/articulos-tecnicos/' | relative_url }}">
-            Artículos técnicos
-          </a>
-        </li>
-        <li>
-          <a class="topbar__link{% if current_url == '/articulos-personales/' %} topbar__link--active{% endif %}" href="{{ '/articulos-personales/' | relative_url }}">
-            Artículos personales
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <button class="search-toggle" type="button" aria-label="Abrir buscador" data-search-toggle>
-      {% include icon.html name='search' %}
-    </button>
+    <div class="topbar__controls">
+      <button class="search-toggle" type="button" aria-label="Abrir buscador" data-search-toggle>
+        {% include icon.html name='search' %}
+      </button>
+    </div>
   </div>
 </header>
