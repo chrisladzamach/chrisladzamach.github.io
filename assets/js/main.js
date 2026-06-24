@@ -93,8 +93,12 @@
       savedView = null;
     }
 
+    // Por defecto siempre lista; solo se aplica la preferencia guardada
+    // si el usuario la cambió explicitamente.
     if (savedView === 'list' || savedView === 'grid') {
       setView(savedView);
+    } else {
+      setView('list');
     }
 
     viewButtons.forEach(function (button) {

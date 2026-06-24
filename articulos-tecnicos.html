@@ -12,10 +12,10 @@ permalink: /articulos-tecnicos/
     </div>
 
     <div class="view-toggle" role="group" aria-label="Cambiar disposición">
-      <button class="view-toggle__btn" type="button" data-view="list" aria-label="Vista de lista" aria-pressed="false">
+      <button class="view-toggle__btn view-toggle__btn--active" type="button" data-view="list" aria-label="Vista de lista" aria-pressed="true">
         {% include icon.html name='list' %}
       </button>
-      <button class="view-toggle__btn view-toggle__btn--active" type="button" data-view="grid" aria-label="Vista de cuadrícula" aria-pressed="true">
+      <button class="view-toggle__btn" type="button" data-view="grid" aria-label="Vista de cuadrícula" aria-pressed="false">
         {% include icon.html name='grid' %}
       </button>
     </div>
@@ -24,7 +24,7 @@ permalink: /articulos-tecnicos/
   {% assign tech_posts = site.categories.tecnico | where_exp: "post", "post.published != false" %}
 
   {% if tech_posts.size > 0 %}
-    <div class="post-list post-list--grid" data-post-list>
+    <div class="post-list post-list--list" data-post-list>
       {% for post in tech_posts %}
         {% include post-card.html post=post %}
       {% endfor %}
