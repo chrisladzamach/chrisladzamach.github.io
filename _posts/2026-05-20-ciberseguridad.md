@@ -49,14 +49,17 @@ A nivel web, la inyección de scripts maliciosos en aplicaciones que confían ci
 A pesar de la madurez de los frameworks modernos, la concatenación directa de strings en consultas hacia bases de datos o comandos del sistema operativo sigue permitiendo a los atacantes bypassear mecanismos de autenticación y exfiltrar esquemas completos de información.
 
 #### D. Ransomware-as-a-Service (RaaS)
+
 El modelo de negocio donde desarrolladores de malware alquilan su infraestructura a "afiliados" para que ejecuten la infección. La IA se utiliza aquí para modificar firmas binarias del malware sobre la marcha, burlando los antivirus tradicionales basados en firmas estáticas.
 
 ---
 
 ## 3. Guías de Acción y Buenas Prácticas por Roles
+
 La seguridad informática no es un producto, es un proceso continuo basado en el principio de **Defensa en Capas (Defense in Depth)**. A continuación, se detallan las directrices técnicas obligatorias divididas por perfiles de responsabilidad.
 
 ### A. Para el Desarrollador de Software (Fullstack, Web, Móvil, Escritorio)
+
 Los ingenieros de software deben adoptar la filosofía **Security by Design** (Seguridad desde el Diseño) y no tratar la ciberseguridad como un parche de última hora antes de salir a producción.
 
 #### Prácticas Esenciales de Desarrollo
@@ -72,6 +75,7 @@ Los ingenieros de software deben adoptar la filosofía **Security by Design** (S
 ---
 
 ### B. Para el Gestor de Bases de Datos (DBA)
+
 Los datos son el activo más codiciado. Un DBA debe garantizar la confidencialidad, integridad y disponibilidad del motor de base de datos bajo esquemas rigurosos.
 
 #### Prácticas Esenciales de Gestión de Datos
