@@ -13,6 +13,10 @@ layout: default
       <span class="post__category">// {{ page.categories | first | upcase }}</span>
       {% endif %}
       <span>READ_TIME: {{ content | number_of_words | divided_by: 180 | at_least: 1 }}_MIN</span>
+      <span class="post__views" data-view-counter data-namespace="ramarak-blog" data-name="{{ page.url | remove: '.html' | remove_first: '/' | replace: '/', '-' }}" aria-label="Vistas del artículo">
+        {% include icon.html name='eye' %}
+        <span data-view-count>—</span> vistas
+      </span>
     </div>
   </header>
 

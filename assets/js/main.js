@@ -279,4 +279,110 @@
       openSearch();
     }
   });
+
+  /* =========================================================
+     Contador de vistas por post (CounterAPI v1)
+     ========================================================= */
+  var viewCounter = $('[data-view-counter]');
+
+  function formatViewCount(count) {
+    if (typeof count !== 'number' || isNaN(count)) return '—';
+    return count.toLocaleString('es-ES');
+  }
+
+  function setViewCounterText(count, suffix) {
+    if (!viewCounter) return;
+    var countEl = viewCounter.querySelector('[data-view-count]');
+    if (!countEl) return;
+    countEl.textContent = formatViewCount(count);
+    if (suffix) countEl.setAttribute('title', suffix);
+  }
+
+  function deriveCounterName() {
+    var name = viewCounter && viewCounter.dataset.name;
+    if (name) return name;
+    name = window.location.pathname
+      .replace(/\/$/, '')
+      .replace(/^\//, '')
+      .replace(/\/+/g, '-')
+      .replace(/\./g, '-');
+    return name || 'home';
+  }
+
+  function localViewCountKey(name) {
+    return 'gio:views:' + name;
+  }
+
+  function bumpLocalViewCount(name) {
+    try {
+      var key = localViewCountKey(name);
+      var value = parseInt(localStorage.getItem(key) || '0', 10) || 0;
+      value += 1;
+      localStorage.setItem(key, String(value));
+      return value;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getLocalViewCount(name) {
+    try {
+      var value = parseInt(localStorage.getItem(localViewCountKey(name)) || '0', 10);
+      return isNaN(value) ? null : value;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function initViewCounter() {
+    if (!viewCounter) {
+      console.log('[view-counter] No hay elemento [data-view-counter] en la página.');
+      return;
+    }
+
+    var namespace = viewCounter.dataset.namespace || 'ramarak-blog';
+    var name = deriveCounterName();
+    console.log('[view-counter] Inicializando contador:', namespace + '/' + name);
+
+    var endpoint = 'https://api.counterapi.dev/v1/' +
+      encodeURIComponent(namespace) + '/' +
+      encodeURIComponent(name) + '/up';
+
+    fetch(endpoint, {
+      method: 'GET',
+      headers: { 'Accept': 'application/json' },
+      referrerPolicy: 'no-referrer'
+    })
+      .then(function (response) {
+        console.log('[view-counter] Respuesta HTTP:', response.status);
+        if (!response.ok) throw new Error('CounterAPI responded with ' + response.status);
+        return response.json();
+      })
+      .then(function (data) {
+        console.log('[view-counter] Datos recibidos:', data);
+        var count = null;
+        if (data && typeof data.count === 'number') count = data.count;
+        else if (data && typeof data.value === 'number') count = data.value;
+
+        if (count !== null) {
+          setViewCounterText(count, 'Contador global');
+          try { localStorage.setItem(localViewCountKey(name), String(count)); } catch (e) {}
+        } else {
+          throw new Error('La respuesta no contiene un contador válido');
+        }
+      })
+      .catch(function (error) {
+        console.error('[view-counter] Error al contactar CounterAPI:', error);
+        // Fallback: contador local basado en localStorage
+        var localCount = bumpLocalViewCount(name);
+        if (localCount !== null) {
+          console.log('[view-counter] Usando contador local:', localCount);
+          setViewCounterText(localCount, 'Contador local (fallback)');
+        } else {
+          setViewCounterText(null, 'No se pudo cargar el contador');
+        }
+      });
+  }
+
+  initViewCounter();
 })();

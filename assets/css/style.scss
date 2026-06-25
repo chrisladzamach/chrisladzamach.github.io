@@ -775,6 +775,25 @@ ul, ol {
   color: var(--primary-container);
 }
 
+.post__views {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--on-surface-variant);
+}
+
+.post__views svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--primary-container);
+}
+
+.post__views-count {
+  color: var(--on-surface);
+  min-width: 1ch;
+}
+
 .post__tags {
   display: flex;
   align-items: center;
