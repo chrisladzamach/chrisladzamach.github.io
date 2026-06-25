@@ -7,7 +7,7 @@ image: "/assets/images/ciberseguridad.jpg"
 published: true
 ---
 
-# La Frontera Invisible: Ciberseguridad en la Era de la Inteligencia Artificial y el Factor Humano
+# La Frontera Invisible: Ciberseguridad en la Era de la Inteligencia Artificial
 
 ## 1. Resumen
 
