@@ -49,17 +49,14 @@ A nivel web, la inyección de scripts maliciosos en aplicaciones que confían ci
 A pesar de la madurez de los frameworks modernos, la concatenación directa de strings en consultas hacia bases de datos o comandos del sistema operativo sigue permitiendo a los atacantes bypassear mecanismos de autenticación y exfiltrar esquemas completos de información.
 
 #### D. Ransomware-as-a-Service (RaaS)
-
 El modelo de negocio donde desarrolladores de malware alquilan su infraestructura a "afiliados" para que ejecuten la infección. La IA se utiliza aquí para modificar firmas binarias del malware sobre la marcha, burlando los antivirus tradicionales basados en firmas estáticas.
 
 ---
 
 ## 3. Guías de Acción y Buenas Prácticas por Roles
-
 La seguridad informática no es un producto, es un proceso continuo basado en el principio de **Defensa en Capas (Defense in Depth)**. A continuación, se detallan las directrices técnicas obligatorias divididas por perfiles de responsabilidad.
 
 ### A. Para el Desarrollador de Software (Fullstack, Web, Móvil, Escritorio)
-
 Los ingenieros de software deben adoptar la filosofía **Security by Design** (Seguridad desde el Diseño) y no tratar la ciberseguridad como un parche de última hora antes de salir a producción.
 
 #### Prácticas Esenciales de Desarrollo
@@ -75,7 +72,6 @@ Los ingenieros de software deben adoptar la filosofía **Security by Design** (S
 ---
 
 ### B. Para el Gestor de Bases de Datos (DBA)
-
 Los datos son el activo más codiciado. Un DBA debe garantizar la confidencialidad, integridad y disponibilidad del motor de base de datos bajo esquemas rigurosos.
 
 #### Prácticas Esenciales de Gestión de Datos
@@ -114,7 +110,7 @@ El usuario no técnico requiere pautas claras, accionables y de baja fricción p
 
 ## 4. Curiosidades y Auditoría Casera: ¿Cómo Saber si mi Sistema Está Comprometido?
 
-No todos los malwares bloquean tu pantalla exigiendo un rescate. El software espía moderno (Spyware, Troyanos, Miners de Criptomonedas) busca el **sigilo**: operar en segundo plano utilizando tus recursos sin levantar sospechas.
+No todos los malwares bloquean la pantalla exigiendo un rescate. El software espía moderno (Spyware, Troyanos, Miners de Criptomonedas) busca el **sigilo**: operar en segundo plano utilizando los recursos sin levantar sospechas.
 
 ### Comportamientos Anómalos Comunes
 
@@ -127,11 +123,11 @@ No todos los malwares bloquean tu pantalla exigiendo un rescate. El software esp
 
 ## 5. Implementación: Comandos de Diagnóstico (Windows vs. Linux)
 
-Si sospechas que algo extraño ocurre en tu computador, puedes abrir la consola de comandos e inspeccionar el sistema de manera forense básica. Aquí tienes los comandos equivalentes para auditar procesos, conexiones de red y consumo de recursos.
+Si sospecha que algo extraño ocurre en el computador, se puede abrir la consola de comandos e inspeccionar el sistema de manera forense básica. Aquí brindo los comandos equivalentes para auditar procesos, conexiones de red y consumo de recursos.
 
 ### A. Inspección de Conexiones de Red Activas
 
-Permite identificar si tu computadora se está comunicando en secreto con servidores externos desconocidos.
+Permite identificar si el computador se está comunicando en secreto con servidores externos desconocidos.
 
 #### En Windows (PowerShell / CMD como Administrador)
 
@@ -206,7 +202,7 @@ Get-ScheduledTask | Where-Object {$_.State -ne "Disabled"} | Select-Object TaskN
 #### En Linux (Terminal)
 
 ```bash
-# Inspecciona las tareas cron del usuario actual y los directorios del sistema
+# Inspeccionar las tareas cron del usuario actual y los directorios del sistema
 crontab -l
 ls -la /etc/cron.*
 ```
